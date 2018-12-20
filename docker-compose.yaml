@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  engine:
+      image: vuetify-nuxt-docker:latest
+      build: .
+      container_name: vuetify-nuxt-docker
+      command: npm run dev -- --hostname 0.0.0.0 --port 4200
+      volumes:
+        - .:/vuetify-nuxt-docker
+      expose:
+        - "4200"
+      ports:
+        - "4200:4200"
+      environment:
+        - IN_DOCKER=1
